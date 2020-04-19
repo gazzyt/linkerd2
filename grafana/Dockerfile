@@ -1,4 +1,4 @@
-FROM grafana/grafana:6.2.5
+FROM grafana/grafana-arm32v7-linux:6.2.5
 
 COPY LICENSE                          /linkerd/LICENSE
 COPY grafana/dashboards               /var/lib/grafana/dashboards

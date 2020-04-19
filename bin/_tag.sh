@@ -21,12 +21,13 @@ named_tag() {
 }
 
 head_root_tag() {
-    if clean_head ; then
-        clean_head_root_tag
-    else
-        name=$(echo $USER | sed 's/[^[:alnum:].-]//g')
-        echo "dev-$(git_sha_head)-$name"
-    fi
+    echo "stable-2.7.1"
+#    if clean_head ; then
+#        clean_head_root_tag
+#    else
+#        name=$(echo $USER | sed 's/[^[:alnum:].-]//g')
+#        echo "dev-$(git_sha_head)-$name"
+#    fi
 }
 
 clean_head_root_tag() {

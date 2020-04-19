@@ -16,7 +16,7 @@ if [ "$version" = latest ]; then
   version=$(curl -sL https://api.github.com/repos/linkerd/linkerd2-proxy/releases/latest |jq -r .tag_name | sed 's,^release/,,')
 fi
 
-assetbase="https://github.com/linkerd/linkerd2-proxy/releases/download/release%2F${version}"
+assetbase="https://github.com/gazzyt/linkerd2-proxy-arm-bin/blob/master"
 pkgname="linkerd2-proxy-${version}"
 pkgfile="${pkgname}.tar.gz"
 shafile="${pkgname}.txt"

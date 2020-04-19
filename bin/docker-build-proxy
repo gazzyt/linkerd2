@@ -17,9 +17,6 @@ dockerfile=$rootdir/Dockerfile-proxy
 
 validate_go_deps_tag "$dockerfile"
 
-(
-    "$bindir"/docker-build-go-deps
-) >/dev/null
 
 get_extra_options() {
     options=

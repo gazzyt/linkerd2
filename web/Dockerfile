@@ -29,10 +29,10 @@ COPY web/srv web/srv
 COPY controller controller
 COPY pkg pkg
 
-RUN CGO_ENABLED=0 GOOS=linux go build -mod=readonly -o web/web -ldflags "-s -w" ./web
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=arm go build -mod=readonly -o web/web -ldflags "-s -w" ./web
 
 ## package it all up
-FROM debian:stretch-20190812-slim
+FROM arm32v7/debian:stretch-20190812-slim
 WORKDIR /linkerd
 
 COPY LICENSE .
