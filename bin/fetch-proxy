@@ -13,13 +13,18 @@ builddir="$rootdir/target/proxy"
 
 version=${1:-latest}
 if [ "$version" = latest ]; then
-  version=$(curl -sL https://api.github.com/repos/linkerd/linkerd2-proxy/releases/latest |jq -r .tag_name | sed 's,^release/,,')
+#  version=$(curl -sL https://api.github.com/repos/linkerd/linkerd2-proxy/releases/latest |jq -r .tag_name | sed 's,^release/,,')
+  version=d1f18a8
 fi
 
-assetbase="https://github.com/gazzyt/linkerd2-proxy-arm-bin/blob/master"
+version=d1f18a8
+
+assetbase="https://github.com/gazzyt/linker2d-proxy-arm-bin/raw/master"
 pkgname="linkerd2-proxy-${version}"
 pkgfile="${pkgname}.tar.gz"
 shafile="${pkgname}.txt"
+
+echo "$assetbase/$pkgfile" >&2
 
 mkdir -p "$builddir"
 cd "$builddir"
