@@ -19,7 +19,7 @@ fi
 
 version=d1f18a8
 
-assetbase="https://github.com/gazzyt/linker2d-proxy-arm-bin/raw/master"
+assetbase="https://raw.githubusercontent.com/gazzyt/linker2d-proxy-arm-bin/master"
 pkgname="linkerd2-proxy-${version}"
 pkgfile="${pkgname}.tar.gz"
 shafile="${pkgname}.txt"
@@ -32,6 +32,7 @@ curl -sLO "$assetbase/$pkgfile"
 curl -sLO "$assetbase/$shafile"
 
 tar -zxvf "$pkgfile" >&2
+
 expected=$(awk '{print $1}' "$shafile")
 computed=$(sha256sum "$pkgfile" | awk '{print $1}')
 if [ "$computed" != "$expected" ]; then
@@ -41,6 +42,8 @@ fi
 
 mv "$pkgname/LICENSE" .
 mv "$pkgname/bin/linkerd2-proxy" .
+
 rm -r "$pkgfile" "$pkgname"
+
 mv linkerd2-proxy "$pkgname"
 echo "$builddir/$pkgname"

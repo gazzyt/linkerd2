@@ -2,6 +2,7 @@ ARG RUNTIME_IMAGE=arm32v7/debian:buster-20200414-slim
 
 FROM $RUNTIME_IMAGE as fetch
 RUN apt-get update && apt-get install -y ca-certificates curl
+RUN c_rehash
 WORKDIR /build
 COPY bin/fetch-proxy bin/fetch-proxy
 COPY .proxy-version proxy-version
